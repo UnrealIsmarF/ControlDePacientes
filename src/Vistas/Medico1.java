@@ -122,6 +122,6 @@ public class Medico1 extends javax.swing.JDialog {
     public javax.swing.JButton btnAtenderPaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtListaMedico1;
+    public javax.swing.JTextArea txtListaMedico1;
     // End of variables declaration//GEN-END:variables
 }
