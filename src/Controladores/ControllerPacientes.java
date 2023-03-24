@@ -9,6 +9,7 @@ import Vistas.frmVistaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Queue;
+import javax.swing.JOptionPane;
 
 
 public class ControllerPacientes implements ActionListener {
@@ -31,6 +32,8 @@ ModeloPacientesSegundo ModeloPacientesSegundo;
         this.VistaPacientes.btnAgregarMedico2.addActionListener(this);
         this.VistaPacientes.btnListaMedico1.addActionListener(this);
         this.VistaPacientes.btnListaMedico2.addActionListener(this);
+        this.VistaMedico1.btnAtenderPaciente.addActionListener(this);
+        this.VistaMedico2.btnAtenderPaciente.addActionListener(this);
         
         //Levantar vista principal
         this.VistaPacientes.setLocationRelativeTo(null);
@@ -47,7 +50,7 @@ ModeloPacientesSegundo ModeloPacientesSegundo;
          
          //Mostrar Los datos en el text Area
          Queue<Pacientes> listaLocal = this.ModeloPacientes.ListarPacientes();
-         
+                 JOptionPane.showMessageDialog(null, "Paciente Agregado a la lista 1");
         String cadena = " ";
         for(Pacientes ModeloPacientes: listaLocal)
         {
@@ -56,6 +59,40 @@ ModeloPacientesSegundo ModeloPacientesSegundo;
         }
         this.VistaPacientes.txtApellidos.setText(" ");
         this.VistaPacientes.txtNombres.setText(" ");
+    }
+        if(e.getSource() == this.VistaMedico1.btnAtenderPaciente)
+    {
+        this.ModeloPacientes.EliminarPacientes1();
+        this.ModeloPacientes.MedicoPacientesPrimero(this.VistaPacientes.txtApellidos.getText() ,
+            this.VistaPacientes.txtNombres.getText());
+         
+         //Mostrar Los datos en el text Area
+         Queue<Pacientes> listaLocal = this.ModeloPacientes.ListarPacientes();
+         
+        String cadena = " ";
+        for(Pacientes ModeloPacientes: listaLocal)
+        {
+            cadena = cadena + ModeloPacientes.getApellido()+ " " + ModeloPacientes.getNombre()+ "\n";
+        }
+           this.VistaMedico1.txtListaMedico1.setText(cadena);
+        
+    }
+        if(e.getSource() == this.VistaMedico2.btnAtenderPaciente)
+    {
+        this.ModeloPacientes.EliminarPacientes2();
+        this.ModeloPacientesSegundo.MedicoPacinteSegundo(this.VistaPacientes.txtApellidos.getText() ,
+            this.VistaPacientes.txtNombres.getText());
+         
+         //Mostrar Los datos en el text Area
+         Queue<Pacientes> listaLocal = this.ModeloPacientes.ListarPacientes();
+         
+        String cadena = " ";
+        for(Pacientes ModeloPacientes: listaLocal)
+        {
+            cadena = cadena + ModeloPacientes.getApellido()+ " " + ModeloPacientes.getNombre()+ "\n";
+        }
+           this.VistaMedico2.txtListaMedico2.setText(cadena);
+        
     }
     if(e.getSource() == this.VistaPacientes.btnAgregarMedico2)
     {

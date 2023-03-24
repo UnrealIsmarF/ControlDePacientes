@@ -12,7 +12,7 @@ public class ModeloPacientes {
     {
         Pacientes newPaciente = new Pacientes(Apellido, Nombre);
         this.ListaPacientes.add(newPaciente);
-        JOptionPane.showMessageDialog(null, "Paciente Agregado a la lista 1");
+
     }
     
     public Queue ListarPacientes()
@@ -20,4 +20,13 @@ public class ModeloPacientes {
         return this.ListaPacientes;
     }
     
+    
+    public void EliminarPacientes1()
+    {
+        this.ListaPacientes.poll();
+    }
+    public void EliminarPacientes2()
+            {
+            this.ListaPacientes.poll();
+            }
 }
